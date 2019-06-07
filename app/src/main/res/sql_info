@@ -1,0 +1,67 @@
+###SQL
+CREATE TABLE kollege (
+ id INTEGER PRIMARY KEY,
+ vorname TEXT);
+CREATE TABLE schueler (
+ id INTEGER PRIMARY KEY,
+ name TEXT);
+CREATE TABLE stammgruppe (
+ id INTEGER PRIMARY KEY,
+ name TEXT,
+ price INTEGER);
+
+CREATE TABLE ingredients (
+ id INTEGER PRIMARY KEY,
+ name TEXT,
+ cost INTEGER,
+ drink_id INTEGER);
+
+
+CREATE TABLE kollege_schueler_stammgruppe (
+ id INTEGER PRIMARY KEY,
+ kollege_id INTEGER,
+ schueler_id INTEGER,
+ stammgruppe INTEGER);
+
+
+-----------------------
+
+###Kollege
+INSERT INTO kollege (name) VALUES ("Akgün");
+INSERT INTO kollege (name) VALUES ("Tulun");
+###Schueler
+INSERT INTO schueler (name) VALUES ("Sila");
+INSERT INTO schueler (name) VALUES ("Ali");
+###stammgruppe
+INSERT INTO stammgruppe (name) VALUES ("gruppe A");
+INSERT INTO stammgruppe (name) VALUES ("gruppe B");
+###kollege_schueler_stammgruppe
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,2);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (2,2,1);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (2, 1,3);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,3);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,2);
+
+
+-----------------------
+
+
+###SQL
+SELECT kollege.name
+FROM kollege
+JOIN kollege_schueler_stammgruppe
+ON kollege.id = kollege_schueler_stammgruppe.kollege_id
+JOIN schueler ON schueler.id = kollege_schueler_stammgruppe.schueler_id
+GROUP BY kollege.name;
+-------------------------
+
+
+
+
+###SQL
+SELECT bartenders.name, SUM(drinks.price)
+FROM bartenders
+JOIN customer_bartender_drinks
+ON bartenders.id = customer_bartender_drinks.bartender_id
+JOIN drinks ON drinks.id = customer_bartender_drinks.drink_id
+GROUP BY bartenders.name;

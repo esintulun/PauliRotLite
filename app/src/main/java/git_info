@@ -1,0 +1,14 @@
+AndroidStudio   -> references  -> version control - git : path to Git executable
+
+1- Enable the GIT Integration plugin
+    File (main menu) >> Settings >> Search for GitHub Integration
+
+2- Enable Version Control Integration for The Project
+    VCS (main menu) >> Enable Version Control Integration >> Select GIT
+
+
+3- Add project file to Local repository
+    Right Click on project >> GIT >> Add
+
+4-Commit Added Files
+    Open the Version Control windows (Next to terminal window) >> Click commit button

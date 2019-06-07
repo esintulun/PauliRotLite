@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+
+
+
+        <item
+            android:id="@+id/nav_klassen"
+            android:icon="@drawable/blume"
+            android:title="Klassen" />
+
+        <item
+            android:id="@+id/nav_chronik"
+            android:icon="@drawable/blume"
+            android:title="Chronik" />
+
+        <item
+            android:id="@+id/nav_übersicht"
+            android:icon="@drawable/world"
+            android:title="Schuelerprofil" />
+
+
+        <item
+            android:id="@+id/nav_vergehen"
+            android:icon="@drawable/world"
+            android:title="Vergehen" />
+
+        <item
+            android:id="@+id/nav_unterrichtplan"
+            android:icon="@drawable/world"
+            android:title="Unterrichtplan" />
+
+        <item
+            android:id="@+id/nav_fullscreen"
+            android:icon="@drawable/world"
+            android:title="Fullscreen" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/world"
+            android:title="Calendar" />
+
+
+
+
+    </group>
+
+</menu>

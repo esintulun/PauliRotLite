@@ -1,0 +1,197 @@
+für die Mysql Connection: permission gehen!
+++++++++++++++++++++++++++++++++++++++++++
+
+
+SQL:
+
+###SQL
+CREATE TABLE kollege (
+ id INTEGER PRIMARY KEY,
+ vorname TEXT);
+CREATE TABLE schueler (
+ id INTEGER PRIMARY KEY,
+ name TEXT);
+CREATE TABLE stammgruppe (
+ id INTEGER PRIMARY KEY,
+ name TEXT,
+ price INTEGER);
+
+CREATE TABLE ingredients (
+ id INTEGER PRIMARY KEY,
+ name TEXT,
+ cost INTEGER,
+ drink_id INTEGER);
+
+
+CREATE TABLE schueler_stammgruppe (
+ id INTEGER PRIMARY KEY,
+ schueler_id INTEGER,
+ stammgruppe INTEGER);
+
+CREATE TABLE kollege_schueler_stammgruppe (
+ id INTEGER PRIMARY KEY,
+ kollege_id INTEGER,
+ schueler_id INTEGER,
+ stammgruppe INTEGER);
+
+
+-----------------------
+
+###Kollege
+INSERT INTO kollege (name) VALUES ("Akgün");
+INSERT INTO kollege (name) VALUES ("Tulun");
+###Schueler
+INSERT INTO schueler (name) VALUES ("Sila");
+INSERT INTO schueler (name) VALUES ("Ali");
+###stammgruppe
+INSERT INTO stammgruppe (name) VALUES ("gruppe A");
+INSERT INTO stammgruppe (name) VALUES ("gruppe B");
+###kollege_schueler_stammgruppe
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,2);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (2,2,1);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (2, 1,3);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,3);
+INSERT INTO kollege_schueler_stammgruppe (kollege_id, schueler_id, stammgruppe_id) VALUES (1,1,2);
+
+
+-----------------------
+
+
+###SQL
+SELECT kollege.name
+FROM kollege
+JOIN kollege_schueler_stammgruppe
+ON kollege.id = kollege_schueler_stammgruppe.kollege_id
+JOIN schueler ON schueler.id = kollege_schueler_stammgruppe.schueler_id
+GROUP BY kollege.name;
+-------------------------
+
+
+
+
+###SQL
+SELECT bartenders.name, SUM(drinks.price)
+FROM bartenders
+JOIN customer_bartender_drinks
+ON bartenders.id = customer_bartender_drinks.bartender_id
+JOIN drinks ON drinks.id = customer_bartender_drinks.drink_id
+GROUP BY bartenders.name;
+
+
+//////
+
+PrivateList(idList INTEGER PRIMARY KEY, name TEXT, creationDate TEXT, active INTEGER, deactivationDate TEXT);
+
+PrivateProduct(idProduct INTEGER PRIMARY KEY, description TEXT, quantity INTEGER, active INTEGER, additionDate TEXT);
+
+List_Product(idList INTEGER NOT NULL, idProduct INTEGER NOT NULL, PRIMARY KEY (idList, idProduct),
+            FOREIGN KEY(idList) REFERENCES PrivateList(idList),
+            FOREIGN KEY(idProduct) REFERENCES PrivateProduct(idProduct));
+
+
+            5A
+            Jasmin
+            Tolgahan
+            Gulnaz
+            Christian
+            Emirhan
+            Alisina
+            Oscar Rio Gordon Ludwig Fritz
+            Serhat
+            Medine
+            Raffaela
+            Aysel
+            Raghad
+            Marcello Sebastian
+            Lulit Mirja
+            Klejvis
+            Talal
+            Marko
+            Amir Ali
+            Fynn Lasse
+            John Markus
+            Petra
+            Xhilda
+
+
+
+            5b
+
+            Leo Aaron Frey
+            Kristian
+            Yusuf
+            Mert
+            Deniz
+            Nurullah
+            Sirin
+            Haci Ali
+            Melisa
+            Nicol-Gabriela
+            Rade
+            Emel
+            Hakan
+            Gamze
+            Tihomir
+            Aleyna Angelie
+            Maria
+            Marijan
+            Muhammed Malik
+            Iman
+
+
+            5c
+
+            Junus
+            Mohamed
+            Alea
+            Mohamad
+            David
+            Mohamad
+            Zara
+            Bislan
+            Medine
+            Zoe Jeyleen Keyleen
+            Justin Jörg
+            Büsra
+            Berfin
+            Saned
+            Kiwan
+            Oskar Marcin
+            Diarra
+            Raphael Ugochi
+            Junus Emre
+            Mohamad Bashir
+            Berrin Amaliya
+
+
+GRUPPEN
+
+WS 5-7 (M)
+Schwimmkran	WS 5-7 (M)
+Containerschiff	WS 5-7 (M) U-Boot
+WS 5-7 (M) Feuerschiff	WS 5-7 (M)
+Barkasse	WS 5-7 (M) Segelschiff
+WS 5-7 (M) Kutter	WS 5-7 (M) Fähre
+WS 5-7 (M) Motorboot
+WS 5-7 (Mi) Schwimmkran 13
+WS 5-7 (Mi) Containerschiff 13
+WS 5-7 (D) U-Boot 14
+WS 5-7 (D) Feuerschiff 14
+WS 5-7 (D) Barkasse 10
+WS 5-7 (D) Segelschiff 15
+WS 5-7 (D) Kutter 12
+SPR 7 (D) Spanisch 22
+SPR 7 (D) Türkisch 12
+SPR 7 (D) Sprache 18
+LB 5-7 Schwimmkran
+LB 5-7 Containerschiff
+LB 5-7 U-Boot
+LB 5-7 Feuerschiff
+LB 5-7 Barkasse
+LB 5-7 Segelschiff
+LB 5-7 Kutter
+MG Basketball
+
+
+
+
